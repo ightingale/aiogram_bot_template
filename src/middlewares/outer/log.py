@@ -17,7 +17,7 @@ class LogUpdatesMiddleware(BaseMiddleware):
     ) -> Any:
         result = await handler(event, data)
         if result == UNHANDLED:
-            logger.error(msg=f"UNHANDLED: {event.model_dump()}")
+            logger.error(f"Unhandled event: %s", event.model_dump())
         else:
-            logger.debug(f"{event.model_dump()}")
+            logger.debug(f"New event: %s", event.model_dump())
         return result

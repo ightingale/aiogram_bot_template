@@ -1,19 +1,15 @@
 from typing import AsyncIterable
 
 from aiohttp import ClientSession
-from dishka import Provider, Scope, provide
+from dishka import Provider, Scope, provide, from_context
 from redis.asyncio import Redis
 
 from ..app_config import AppConfig
-from ..factory.app_config import create_app_config
 
 
 class MainProvider(Provider):
     scope = Scope.APP
-
-    @provide
-    async def provide_config(self) -> AppConfig:
-        return create_app_config()
+    app_config = from_context(AppConfig)
 
     @provide
     async def provide_redis(self, config: AppConfig) -> Redis:

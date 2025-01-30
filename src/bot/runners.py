@@ -1,14 +1,15 @@
 import logging
 
 from aiogram import Bot, Dispatcher, loggers
+from aiogram.types import BotCommand
 
-from .app_config import AppConfig
+from src.app_config import AppConfig
 
 logger: logging.Logger = logging.getLogger(__name__)
 
 
 async def set_default_commands(bot: Bot):
-    pass
+    await bot.set_my_commands([BotCommand(command="start", description="Main menu")])
 
 
 async def admin_notification(text: str, admins: list[int], bot: Bot):

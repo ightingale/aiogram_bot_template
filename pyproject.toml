@@ -4,18 +4,19 @@ version = "0.1.0"
 description = "Aiogram telegram bot template"
 authors = ["nightingale <nightintgale@yandex.ru>"]
 readme = "README.md"
+packages = [{ include = "src" }]
 
 [tool.poetry.dependencies]
 python = "^3.12"
-aiogram = "^3.14.0"
-aiogram-dialog = "^2.2.0"
-dishka = "^1.4.0"
+aiogram = "^3.17.0"
+aiogram-dialog = "^2.3.1"
+dishka = "^1.4.1"
 sqlalchemy = "^2.0.36"
 asyncpg = "^0.30.0"
-pydantic-settings = "^2.6.1"
-redis = "^5.2.0"
-alembic = "^1.13.3"
-msgspec = "^0.18.6"
+pydantic-settings = "^2.7.1"
+redis = "^5.2.1"
+alembic = "^1.14.1"
+msgspec = "^0.19.0"
 
 
 [build-system]
@@ -23,7 +24,7 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 
-[tool.poetry.dev-dependencies]
+[poetry.group.dev.dependencies]
 libcst = "^1.2.0"
 black = "^24.4.0"
 mypy = "^1.8.0"

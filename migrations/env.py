@@ -6,9 +6,9 @@ from sqlalchemy import URL, MetaData
 from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import AsyncEngine, create_async_engine
 
-from src.bot.app_config import PostgresConfig
-from src.bot.services.database.models import Base
-from src.bot.utils.loggers import setup_logger
+from src.app_config import PostgresConfig
+from src.database import Base
+from src.utils.loggers import setup_logger
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

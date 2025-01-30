@@ -57,3 +57,14 @@ app-destroy:
 .PHONY: app-logs
 app-logs:
 	docker compose logs -f bot
+
+.PHONY: save-logs
+save-logs:
+	docker compose logs bot > logs/bot_$$(date +'%Y-%m-%d_%H-%M-%S').log
+
+.PHONY: app-pull
+app-pull:
+	$(MAKE) save-logs
+	git pull
+	$(MAKE) app-build
+	$(MAKE) app-run
